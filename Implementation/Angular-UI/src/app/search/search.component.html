@@ -1,0 +1,29 @@
+
+<div class="loadWrapper" *ngIf="loader">  
+  <div class="loader">  
+    <img height="50px" width="50px" src="assets/images/load-spinner.gif" alt="loading" /> 
+  </div>  
+</div>
+
+<mat-form-field style="width:20%;">
+  <input type="text" matInput [formControl]="origin" [matAutocomplete]="from" placeholder="From">
+</mat-form-field>
+
+<mat-autocomplete #from="matAutocomplete" [displayWith]="displayLocation" (optionSelected)="selected($event)">
+  <mat-option *ngFor="let location of (originLocations | async)?._embedded.locations" [value]="location">
+    {{location.name}}({{location.code}})</mat-option>
+</mat-autocomplete>
+
+<mat-form-field style="width:20%;">
+  <input type="text" matInput [formControl]="destination" [matAutocomplete]="to" placeholder="To">
+</mat-form-field>
+
+<mat-autocomplete #to="matAutocomplete" [displayWith]="displayLocation" (optionSelected)="selected($event)">
+  <mat-option *ngFor="let location of (destinationLocations | async)?._embedded.locations" [value]="location">
+    {{location.name}}({{location.code}})</mat-option>
+</mat-autocomplete>
+
+<button mat-button-raised color="primary" (click)="search()"> Get Fare </button>
+
+
+<app-fares [fareData]="fare"></app-fares>

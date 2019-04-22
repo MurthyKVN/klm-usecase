@@ -1,0 +1,42 @@
+<div class="container" *ngIf="fareData != null">
+
+  <div class="card-deck mb-3 text-center">
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Origin</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{fareData.originLocation.name}}</li>
+          <li>({{fareData.originLocation.code}})</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Destination</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{fareData.destLocation.name}}</li>
+          <li>({{fareData.destLocation.code}})</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Fare Details</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Total Price: {{fareData.amount}}</li>
+            <li>({{fareData.currency}})</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</div>
