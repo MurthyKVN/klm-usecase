@@ -4,8 +4,8 @@ import { catchError, debounceTime, distinctUntilChanged, map, tap, switchMap } f
 
 import {FormControl} from '@angular/forms';
 
-import { LocationService } from '../location.service';
-import { FaresService } from '../fares.service';
+import { LocationService } from '../shared/location.service';
+import { FaresService } from '../shared/fares.service';
 
 import { Fare } from '../model/fare';
 

@@ -4,8 +4,7 @@ import { Fare } from '../model/fare';
 
 @Component({
   selector: 'app-fares',
-  templateUrl: './fares.component.html',
-  styleUrls: ['./fares.component.css']
+  templateUrl: './fares.component.html'
 })
 export class FaresComponent implements OnInit {
 

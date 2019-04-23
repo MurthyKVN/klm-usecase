@@ -3,13 +3,12 @@ import { Observable } from 'rxjs';
 
 import { DataSource } from '@angular/cdk/collections';
 
-import { LocationService } from '../location.service';
+import { LocationService } from '../shared/location.service';
 import { Location } from '../model/location';
 
 @Component({
   selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css']
+  templateUrl: './location.component.html'
 })
 export class LocationComponent implements OnInit {
   displayedColumns: string[] = ['name', 'description', 'code'];

@@ -13,17 +13,17 @@ import { SearchComponent } from './search/search.component';
 import { FaresComponent } from './fares/fares.component';
 import { HeaderComponent } from './header/header.component';
 import { LocationComponent } from './location/location.component';
-import { HealthmonitorComponent } from './healthmonitor/healthmonitor.component';
+import { HealthMonitorComponent } from './health-monitor/health-monitor.component';
 
-import { LocationService } from './location.service';
-import { FaresService } from './fares.service';
-import { HealthmonitorService } from './healthmonitor.service';
+import { LocationService } from './shared/location.service';
+import { FaresService } from './shared/fares.service';
+import { HealthMonitorService } from './shared/health-monitor.service';
 
 const routes: Routes = [
   { path: '', component: SearchComponent },
   { path: 'home', component: SearchComponent },
   { path: 'locations', component: LocationComponent },
-  { path: 'monitor/health', component: HealthmonitorComponent }
+  { path: 'monitor/health', component: HealthMonitorComponent }
 ];
 
 @NgModule({
@@ -33,7 +33,7 @@ const routes: Routes = [
     FaresComponent,
     HeaderComponent,
     LocationComponent,
-    HealthmonitorComponent
+    HealthMonitorComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,7 @@ const routes: Routes = [
     MatPaginatorModule, 
     ChartsModule
   ],
-  providers: [LocationService, FaresService, HealthmonitorService],
+  providers: [LocationService, FaresService, HealthMonitorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

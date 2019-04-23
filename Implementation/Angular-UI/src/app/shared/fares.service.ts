@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
-import { Fare } from './model/fare';
+import { Fare } from '../model/fare';
 
 @Injectable()
 export class FaresService {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 
-import { LocationResponse } from './model/locationresponse';
+import { LocationResponse } from '../model/location-response';
 
 @Injectable()
 export class LocationService {
