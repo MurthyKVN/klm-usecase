@@ -23,12 +23,8 @@ export class LocationService {
   }
 
   // For locations table
-  public getLocations(){
+  public getLocations(page, size){
         let url = this.locationUrl;
-        return this.http.get<LocationResponse>(url).pipe(map(result => result._embedded.locations));
-  }
-
-  private handleError(err:HttpErrorResponse){
-    console.log(err)
+        return this.http.get<LocationResponse>(url, {params: { page:page, size:size }});
   }
 }

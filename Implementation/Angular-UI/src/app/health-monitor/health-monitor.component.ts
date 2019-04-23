@@ -8,7 +8,6 @@ import { HealthMonitorService } from '../shared/health-monitor.service';
   templateUrl: './health-monitor.component.html'
 })
 export class HealthMonitorComponent implements OnInit {
-
   labels:Array<any> = ["2XX", "4XX", "5XX"]
   stats:any = {};
 
@@ -27,11 +26,9 @@ export class HealthMonitorComponent implements OnInit {
         maxTime: result.maxTime,
         minTime: result.minTime        
       }
-
     },error => {
       console.log('error fetching health data.');
       console.log(error);
     });
   }
-
 }

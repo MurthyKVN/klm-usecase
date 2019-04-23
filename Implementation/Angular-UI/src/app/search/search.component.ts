@@ -15,23 +15,18 @@ import { Fare } from '../model/fare';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  loader = false;
   origin = new FormControl();
   destination = new FormControl();
   originLocations = {};
   destinationLocations = {};
-
   fare:Fare;
-
   subscription:Subscription;
-
   initData = {
     _embedded: {
       locations: []
     }
   }
-
-  loader = false;
 
   constructor(private locationService:LocationService, private faresService:FaresService) { }
 
@@ -45,7 +40,7 @@ export class SearchComponent implements OnInit {
       )
     );
 
-     this.destinationLocations = this.destination
+    this.destinationLocations = this.destination
      .valueChanges
      .pipe(
        debounceTime(300),
@@ -69,12 +64,10 @@ export class SearchComponent implements OnInit {
     if(this.subscription){
       this.subscription.unsubscribe();
     }
-
     if(this.origin.value==null || this.origin.value.code==null){
       alert('Select Origin location!!!');
       return;
     }
-
     if(this.destination.value==null || this.destination.value.code==null){
       alert('Select Destination location!!!');
       return;

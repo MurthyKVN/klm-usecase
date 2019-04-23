@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { Fare } from '../model/fare';
 
 @Component({
@@ -7,12 +6,10 @@ import { Fare } from '../model/fare';
   templateUrl: './fares.component.html'
 })
 export class FaresComponent implements OnInit {
-
   @Input() fareData:Fare;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
