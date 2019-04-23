@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.afkl.cases.df.service.FareService;
+import com.afkl.cases.df.service.TravelService;
 import com.afkl.cases.df.vo.FareVO;
 
 @RestController
@@ -14,16 +14,16 @@ import com.afkl.cases.df.vo.FareVO;
 public class Fares {
 	
 	@Autowired
-	FareService fareService;
+	TravelService travelService;
 	
 	@GetMapping
 	public String list(@RequestParam("origin") String origin, @RequestParam("dest") String destination){
-		return fareService.getFare(origin, destination);
+		return travelService.getFare(origin, destination);
 	}
 	
 	@GetMapping("/list2")
 	public FareVO list2(@RequestParam("origin") String origin, @RequestParam("dest") String destination){
-		return fareService.getFare2(origin, destination);
+		return travelService.getFare2(origin, destination);
 	}
 	
 }

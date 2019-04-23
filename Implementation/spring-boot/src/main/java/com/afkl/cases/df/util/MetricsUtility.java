@@ -13,12 +13,10 @@ public class MetricsUtility {
 	public MetricsVO processAndReturnMetrics(Root traceData) {
 		List<Trace> traces = traceData.getTraces();
 		if(traces!=null && traces.size() != 0) {
-			
 			traces.forEach((t) -> {
 				if(t.getRequest().getUri().contains("/travel")) {
 					totalCount++;
 					int status = t.getResponse().getStatus();
-					
 					if(status>=200 && status<300)
 						status2xxCount++;
 					else if(status>=400 && status<500)
@@ -33,9 +31,7 @@ public class MetricsUtility {
 						minTime = t.getTimeTaken();
 				}
 			});
-			
 		}
-		
 		MetricsVO metricsVO = new MetricsVO();
 		metricsVO.setTotalCount(totalCount);
 		metricsVO.setStatusOKCount(status2xxCount);
@@ -43,8 +39,7 @@ public class MetricsUtility {
 		metricsVO.setStatus5XXCount(status5xxCount);
 		metricsVO.setMaxTime(maxTime);
 		metricsVO.setMinTime(minTime);
-		
+
 		return metricsVO;
 	}
-
 }

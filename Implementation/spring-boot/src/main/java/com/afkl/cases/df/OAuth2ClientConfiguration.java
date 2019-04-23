@@ -10,14 +10,14 @@ import org.springframework.security.oauth2.client.token.grant.client.ClientCrede
 public class OAuth2ClientConfiguration {
 
 	@Bean
-    @ConfigurationProperties("security.oauth2.client")
-    protected ClientCredentialsResourceDetails oAuthDetails() {
-        return new ClientCredentialsResourceDetails();
-    }
-	
+	@ConfigurationProperties("security.oauth2.client")
+	protected ClientCredentialsResourceDetails oAuthDetails() {
+		return new ClientCredentialsResourceDetails();
+	}
+
 	@Bean
 	public OAuth2RestTemplate msRestTemplate() {
-	    return new OAuth2RestTemplate(oAuthDetails());
+		return new OAuth2RestTemplate(oAuthDetails());
 	}
-	
+
 }
