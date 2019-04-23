@@ -19,8 +19,8 @@ public class Airports {
 	TravelService travelService;
 	
 	@GetMapping
-	public LocationsDataVO list(@RequestParam(name = "term", required=false) String searchTerm, @RequestParam(name = "page", required=false) Integer page){
-		return travelService.listLocations(searchTerm, page);
+	public LocationsDataVO list(@RequestParam(name = "term", required=false) String searchTerm, @RequestParam(name = "page", required=false) Integer page, @RequestParam(name = "size", required=false) Integer pageSize){
+		return travelService.listLocations(searchTerm, page, pageSize);
 	}
 	
 	@GetMapping("/{code}")

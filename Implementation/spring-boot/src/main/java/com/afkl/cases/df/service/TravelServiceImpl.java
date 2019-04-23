@@ -26,7 +26,7 @@ public class TravelServiceImpl implements TravelService{
 	@Autowired
 	AppConfig appConfig;
 
-	public LocationsDataVO listLocations(String searchTerm, Integer page) {
+	public LocationsDataVO listLocations(String searchTerm, Integer page, Integer size) {
 		String url = appConfig.getServiceApiUrl() + "/airports";
 		UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url);
 		if (searchTerm != null && !searchTerm.isEmpty()) {
@@ -35,9 +35,12 @@ public class TravelServiceImpl implements TravelService{
 		if (page != null) {
 			uriBuilder.queryParam("page", page);
 		}
+		if (size != null) {
+			uriBuilder.queryParam("size", size);
+		}
 		return msRestTemplate.getForEntity(uriBuilder.build().toString(), LocationsDataVO.class).getBody();
 	}
-
+	
 	public LocationVO getByLocationCode(String code) {
 		String url = appConfig.getServiceApiUrl() + "/airports/" + code;
 		return msRestTemplate.getForEntity(url, LocationVO.class).getBody();
@@ -45,7 +48,7 @@ public class TravelServiceImpl implements TravelService{
 	
 	public String getFare(String originCode, String destinationCode){
 		String url = appConfig.getServiceApiUrl()+"/fares/" + originCode + "/" + destinationCode;
-		System.out.println("api url->" + url);
+		System.out.println("fare api url->" + url);
 		return msRestTemplate.getForEntity(url , String.class).getBody();
 	}
 	

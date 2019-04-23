@@ -6,7 +6,7 @@ import com.afkl.cases.df.vo.LocationsDataVO;
 import com.afkl.cases.df.vo.MetricsVO;
 
 public interface TravelService {
-	public LocationsDataVO listLocations(String searchTerm, Integer page);
+	public LocationsDataVO listLocations(String searchTerm, Integer page, Integer size);
 	public LocationVO getByLocationCode(String code);
 	public String getFare(String originCode, String destinationCode);
 	public FareVO getFare2(String originCode, String destinationCode);
